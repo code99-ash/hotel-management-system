@@ -2,121 +2,141 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\about.vue",
-    "chunkName": "pages/about"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\about.vue",
+    "chunkName": "pages/about",
+    "_name": "_48fc6ab0"
   },
   {
     "name": "admin",
     "path": "/admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\index.vue",
+    "chunkName": "pages/admin/index",
+    "_name": "_5ee86050"
   },
   {
     "name": "admin-login",
     "path": "/admin-login",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin-login.vue",
-    "chunkName": "pages/admin-login"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin-login.vue",
+    "chunkName": "pages/admin-login",
+    "_name": "_4affed74"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\checkout.vue",
-    "chunkName": "pages/checkout"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\checkout.vue",
+    "chunkName": "pages/checkout",
+    "_name": "_c080320a"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\contact.vue",
-    "chunkName": "pages/contact"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\contact.vue",
+    "chunkName": "pages/contact",
+    "_name": "_04b694fb"
   },
   {
     "name": "gallery",
     "path": "/gallery",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\gallery.vue",
-    "chunkName": "pages/gallery"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\gallery.vue",
+    "chunkName": "pages/gallery",
+    "_name": "_fbaa01a6"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_763d6ef8"
   },
   {
     "name": "register",
     "path": "/register",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\register.vue",
-    "chunkName": "pages/register"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_3a725c50"
   },
   {
     "name": "admin-bookings",
     "path": "/admin/bookings",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\bookings.vue",
-    "chunkName": "pages/admin/bookings"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\bookings.vue",
+    "chunkName": "pages/admin/bookings",
+    "_name": "_1f6cbca4"
   },
   {
     "name": "admin-categories",
     "path": "/admin/categories",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\categories.vue",
-    "chunkName": "pages/admin/categories"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\categories.vue",
+    "chunkName": "pages/admin/categories",
+    "_name": "_341fdbf4"
   },
   {
     "name": "admin-edit-profile",
     "path": "/admin/edit-profile",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\edit-profile.vue",
-    "chunkName": "pages/admin/edit-profile"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\edit-profile.vue",
+    "chunkName": "pages/admin/edit-profile",
+    "_name": "_4feefb50"
   },
   {
     "name": "admin-gallery",
     "path": "/admin/gallery",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\gallery.vue",
-    "chunkName": "pages/admin/gallery"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\gallery.vue",
+    "chunkName": "pages/admin/gallery",
+    "_name": "_4b9c3ad8"
   },
   {
     "name": "admin-logout",
     "path": "/admin/logout",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\logout.vue",
-    "chunkName": "pages/admin/logout"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\logout.vue",
+    "chunkName": "pages/admin/logout",
+    "_name": "_0d681918"
   },
   {
     "name": "admin-profile",
     "path": "/admin/profile",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\profile.vue",
-    "chunkName": "pages/admin/profile"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\profile.vue",
+    "chunkName": "pages/admin/profile",
+    "_name": "_53616ca2"
   },
   {
     "name": "admin-roles",
     "path": "/admin/roles",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\roles\\\\index.vue",
-    "chunkName": "pages/admin/roles/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\roles\\\\index.vue",
+    "chunkName": "pages/admin/roles/index",
+    "_name": "_791fcadf"
   },
   {
     "name": "admin-staffs",
     "path": "/admin/staffs",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\staffs\\\\index.vue",
-    "chunkName": "pages/admin/staffs/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\staffs\\\\index.vue",
+    "chunkName": "pages/admin/staffs/index",
+    "_name": "_6d7622e5"
   },
   {
     "name": "admin-roles-addrole",
     "path": "/admin/roles/addrole",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\roles\\\\addrole.vue",
-    "chunkName": "pages/admin/roles/addrole"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\roles\\\\addrole.vue",
+    "chunkName": "pages/admin/roles/addrole",
+    "_name": "_5168aee4"
   },
   {
     "name": "admin-staffs-newstaff",
     "path": "/admin/staffs/newstaff",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\admin\\\\staffs\\\\newstaff.vue",
-    "chunkName": "pages/admin/staffs/newstaff"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\admin\\\\staffs\\\\newstaff.vue",
+    "chunkName": "pages/admin/staffs/newstaff",
+    "_name": "_1c67197d"
   },
   {
     "name": "verify-account-email-token",
     "path": "/verify-account/:email?/:token?",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\verify-account\\\\_email\\\\_token.vue",
-    "chunkName": "pages/verify-account/_email/_token"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\verify-account\\\\_email\\\\_token.vue",
+    "chunkName": "pages/verify-account/_email/_token",
+    "_name": "_276ba165"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\my-app\\\\front_end\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_098cb526"
   }
 ]

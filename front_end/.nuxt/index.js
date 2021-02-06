@@ -13,16 +13,16 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_vuescrollto_7478e30f from 'nuxt_plugin_vuescrollto_7478e30f' // Source: .\\vue-scrollto.js (mode: 'client')
-import nuxt_plugin_cookieuniversalnuxt_71e50962 from 'nuxt_plugin_cookieuniversalnuxt_71e50962' // Source: .\\cookie-universal-nuxt.js (mode: 'all')
-import nuxt_plugin_axios_175a1dba from 'nuxt_plugin_axios_175a1dba' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_vuescrollto_08e7adb8 from 'nuxt_plugin_vuescrollto_08e7adb8' // Source: .\\vue-scrollto.js (mode: 'client')
+import nuxt_plugin_cookieuniversalnuxt_30f52cd9 from 'nuxt_plugin_cookieuniversalnuxt_30f52cd9' // Source: .\\cookie-universal-nuxt.js (mode: 'all')
+import nuxt_plugin_axios_03760f31 from 'nuxt_plugin_axios_03760f31' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_iview_fabcf5d2 from 'nuxt_plugin_iview_fabcf5d2' // Source: ..\\plugins\\iview (mode: 'all')
 import nuxt_plugin_vuetify_512965c0 from 'nuxt_plugin_vuetify_512965c0' // Source: ..\\plugins\\vuetify.js (mode: 'all')
 import nuxt_plugin_vuemat_137e40b4 from 'nuxt_plugin_vuemat_137e40b4' // Source: ..\\plugins\\vuemat.js (mode: 'all')
 import nuxt_plugin_vuelidate_7b59e9fd from 'nuxt_plugin_vuelidate_7b59e9fd' // Source: ..\\plugins\\vuelidate.js (mode: 'all')
 import nuxt_plugin_flutterwave_b89ec842 from 'nuxt_plugin_flutterwave_b89ec842' // Source: ..\\plugins\\flutterwave (mode: 'client')
 import nuxt_plugin_korapay_722fb602 from 'nuxt_plugin_korapay_722fb602' // Source: ..\\plugins\\korapay (mode: 'client')
-import nuxt_plugin_auth_5f51ec36 from 'nuxt_plugin_auth_5f51ec36' // Source: .\\auth.js (mode: 'all')
+import nuxt_plugin_auth_7c732042 from 'nuxt_plugin_auth_7c732042' // Source: .\\auth.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -211,16 +211,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_vuescrollto_7478e30f === 'function') {
-    await nuxt_plugin_vuescrollto_7478e30f(app.context, inject)
+  if (process.client && typeof nuxt_plugin_vuescrollto_08e7adb8 === 'function') {
+    await nuxt_plugin_vuescrollto_08e7adb8(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_cookieuniversalnuxt_71e50962 === 'function') {
-    await nuxt_plugin_cookieuniversalnuxt_71e50962(app.context, inject)
+  if (typeof nuxt_plugin_cookieuniversalnuxt_30f52cd9 === 'function') {
+    await nuxt_plugin_cookieuniversalnuxt_30f52cd9(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_175a1dba === 'function') {
-    await nuxt_plugin_axios_175a1dba(app.context, inject)
+  if (typeof nuxt_plugin_axios_03760f31 === 'function') {
+    await nuxt_plugin_axios_03760f31(app.context, inject)
   }
 
   if (typeof nuxt_plugin_iview_fabcf5d2 === 'function') {
@@ -247,8 +247,8 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_korapay_722fb602(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_auth_5f51ec36 === 'function') {
-    await nuxt_plugin_auth_5f51ec36(app.context, inject)
+  if (typeof nuxt_plugin_auth_7c732042 === 'function') {
+    await nuxt_plugin_auth_7c732042(app.context, inject)
   }
 
   // Lock enablePreview in context

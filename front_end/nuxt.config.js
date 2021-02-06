@@ -46,7 +46,7 @@ module.exports = {
     ],
     publicRuntimeConfig: {
       axios: {
-        baseURL: process.env.BASE_URL || 'http://localhost/api/myAppApi'
+        baseURL: process.env.BASE_URL || 'http://localhost/my-app/back_end/myAppApi'
       }
     },
 }
