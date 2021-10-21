@@ -18,6 +18,7 @@ const CategorySchema = mongoose.Schema({
         type: String,
         required: true
     },
+    rooms: []
 
 }, {timestamps: true});
 
