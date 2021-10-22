@@ -1,17 +1,20 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 // Route Middleware
 app.use('/api/user', require('./routes/users'))
 app.use('/api/category', require('./routes/categories'))
+app.use('/api/room', require('./routes/rooms'))
 
 app.get("/", (req, res) => {
   res.send("Hotel Application index");

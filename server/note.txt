@@ -1,0 +1,51 @@
+// How to check if a rooms are available
+
+// Customer's request
+today = new Date();
+checkingIn=        --:--:---- --:--
+checkingOut=       --:--:---- --:--
+staying_days=       checkingOut - checkingIn 
+
+// Vacant Rooms ==> Just deliver
+
+// Rooms Ordered;
+    checkInOrdered = --:--:---- --:--
+   checkOutOrdered = --:--:---- --:--
+   days_ordered = checkOutOrdered - checkInOrdered
+
+        ||
+        \/
+
+// To check if room is available before check In Ordered
+
+if(checkingIn < checkInOrdered) { // If room is booked before time
+    // check to see if checkingOut < checkInOrdered 
+    if(checkingOut < checkInOrdered) {
+        return "vacant"
+    }
+}
+
+// Check to see if booked room will be available after booked room is checkout
+
+if(checkingIn > checkOutOrdered) {
+    return "vacant"
+}
+
+// Check to see if someone checkout and another booked
+// See if there are available days between them
+
+// betweenCheckIn
+// betweenCheckOut
+// days_between = betweenCheckOut - betweenCheckIn
+
+// Coming in after checking out => betweenCheckIn > checkOutOrdered
+// Leaving before another checkIn => betweenCheckOut < checkingIn
+
+// If( I am comming in after checkout and will be leaving before another one checkin)
+
+if(betweenCheckIn > checkOutOrdered && betweenCheckOut < checkingIn) {
+    const available_days = checkingIn - checkOutOrdered 
+    if(available_days > days_between) {
+        "vacant"
+    }
+}

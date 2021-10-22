@@ -16,9 +16,14 @@ const CategorySchema = mongoose.Schema({
     },
     image: {
         type: String,
-        required: true
+        required: false
     },
-    rooms: []
+    rooms: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Room'
+        }
+    ]
 
 }, {timestamps: true});
 
