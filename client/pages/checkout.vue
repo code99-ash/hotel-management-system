@@ -82,12 +82,12 @@ import "~/assets/css/style.css";
 
 export default {
     layout: 'Customer',
-    middleware: 'userAuth',
-    async asyncData({$axios, $config}) {
-        const categories = await $axios.$get(`/api/request.php?getCategories=true`);
-        // console.log(categories)
-        return {categories}
-    },
+    // middleware: 'userAuth',
+    // async asyncData({$axios, $config}) {
+    //     const categories = await $axios.$get(`/api/request.php?getCategories=true`);
+    //     // console.log(categories)
+    //     return {categories}
+    // },
     computed: {
         user() {
             return this.$store.state.auth.user

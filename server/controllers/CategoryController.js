@@ -2,8 +2,7 @@ const { Category } = require('../models');
 
 const getCategories = async(req, res, next) => {
     try {
-        // const categories = await Category.find().populate('rooms');
-        const categories = await Category.find();
+        const categories = await Category.find().populate('rooms');
         res.json(categories).status(201)
     }catch(err) {
         next(err)
@@ -28,7 +27,10 @@ const updateCategory = async(req, res, next) => {
     try {
         const {id, name, price, active} = req.body;
         await Category.findByIdAndUpdate(id, {name, price, active})
-                        .then(result => res.json(result).status(201));
+        
+        const updated = await Category.findById(id).populate('rooms')
+        res.json(updated)
+        
     }catch(err) {
         next(err)
     }

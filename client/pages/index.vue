@@ -225,12 +225,12 @@ export default {
         }
     },
     created() {
-        this.fetchCategories();
-        this.fetchGallery();
+        // this.fetchCategories();
+        // this.fetchGallery();
     },
     mounted() {
         this.handleScroll();
-        this.handleCategoryImage();
+        // this.handleCategoryImage();
     },
     methods: {
         

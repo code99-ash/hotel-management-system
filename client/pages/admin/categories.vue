@@ -21,10 +21,10 @@ import addCateg from '../../components/admin/add-categ.vue'
 export default {
     components: { addCateg },
     layout: 'Admin',
-    async asyncData({$axios, $config}) {
-        const categories = await $axios.$get(`/api/request.php?getCategories=true`);
-        return {categories} 
-    },
+    // async asyncData({$axios, $config}) {
+    //     const categories = await $axios.$get(`/api/request.php?getCategories=true`);
+    //     return {categories} 
+    // },
     data () {
             return {
                 value1: '1',

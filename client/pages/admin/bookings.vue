@@ -65,11 +65,11 @@ import moreInfo from '../../components/admin/bookings/more-info.vue'
   export default {
   components: { moreInfo },
     layout: 'Admin',
-    async asyncData({$axios, $config}) {
-        const bookings = await $axios.$get(`/api/request.php?allBookings=true`);
-        console.log("bookings", bookings)
-        return {bookings} 
-    },
+    // async asyncData({$axios, $config}) {
+    //     const bookings = await $axios.$get(`/api/request.php?allBookings=true`);
+    //     console.log("bookings", bookings)
+    //     return {bookings} 
+    // },
     data () {
       return {
         moreDialog: false,

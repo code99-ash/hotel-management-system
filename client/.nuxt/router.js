@@ -4,26 +4,18 @@ import { normalizeURL, decode } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _48fc6ab0 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages/about" */))
-const _5ee86050 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
-const _4affed74 = () => interopDefault(import('..\\pages\\admin-login.vue' /* webpackChunkName: "pages/admin-login" */))
-const _c080320a = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
-const _04b694fb = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
-const _fbaa01a6 = () => interopDefault(import('..\\pages\\gallery.vue' /* webpackChunkName: "pages/gallery" */))
-const _763d6ef8 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _3a725c50 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages/register" */))
-const _1f6cbca4 = () => interopDefault(import('..\\pages\\admin\\bookings.vue' /* webpackChunkName: "pages/admin/bookings" */))
-const _341fdbf4 = () => interopDefault(import('..\\pages\\admin\\categories.vue' /* webpackChunkName: "pages/admin/categories" */))
-const _4feefb50 = () => interopDefault(import('..\\pages\\admin\\edit-profile.vue' /* webpackChunkName: "pages/admin/edit-profile" */))
-const _4b9c3ad8 = () => interopDefault(import('..\\pages\\admin\\gallery.vue' /* webpackChunkName: "pages/admin/gallery" */))
-const _0d681918 = () => interopDefault(import('..\\pages\\admin\\logout.vue' /* webpackChunkName: "pages/admin/logout" */))
-const _53616ca2 = () => interopDefault(import('..\\pages\\admin\\profile.vue' /* webpackChunkName: "pages/admin/profile" */))
-const _791fcadf = () => interopDefault(import('..\\pages\\admin\\roles\\index.vue' /* webpackChunkName: "pages/admin/roles/index" */))
-const _6d7622e5 = () => interopDefault(import('..\\pages\\admin\\staffs\\index.vue' /* webpackChunkName: "pages/admin/staffs/index" */))
-const _5168aee4 = () => interopDefault(import('..\\pages\\admin\\roles\\addrole.vue' /* webpackChunkName: "pages/admin/roles/addrole" */))
-const _1c67197d = () => interopDefault(import('..\\pages\\admin\\staffs\\newstaff.vue' /* webpackChunkName: "pages/admin/staffs/newstaff" */))
-const _276ba165 = () => interopDefault(import('..\\pages\\verify-account\\_email\\_token.vue' /* webpackChunkName: "pages/verify-account/_email/_token" */))
-const _098cb526 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _986559b0 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages/about" */))
+const _a3649150 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
+const _1da18e7b = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
+const _0f7c050a = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
+const _75b667ad = () => interopDefault(import('..\\pages\\gallery.vue' /* webpackChunkName: "pages/gallery" */))
+const _6721acde = () => interopDefault(import('..\\pages\\account\\login.vue' /* webpackChunkName: "pages/account/login" */))
+const _0b318caa = () => interopDefault(import('..\\pages\\account\\register.vue' /* webpackChunkName: "pages/account/register" */))
+const _4747a524 = () => interopDefault(import('..\\pages\\admin\\bookings.vue' /* webpackChunkName: "pages/admin/bookings" */))
+const _fa9a4af4 = () => interopDefault(import('..\\pages\\admin\\categories.vue' /* webpackChunkName: "pages/admin/categories" */))
+const _71bcb860 = () => interopDefault(import('..\\pages\\admin\\edit-profile.vue' /* webpackChunkName: "pages/admin/edit-profile" */))
+const _7efb7b50 = () => interopDefault(import('..\\pages\\admin\\gallery.vue' /* webpackChunkName: "pages/admin/gallery" */))
+const _58f5a426 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -43,83 +35,51 @@ export const routerOptions = {
 
   routes: [{
     path: "/about",
-    component: _48fc6ab0,
+    component: _986559b0,
     name: "about"
   }, {
     path: "/admin",
-    component: _5ee86050,
+    component: _a3649150,
     name: "admin"
   }, {
-    path: "/admin-login",
-    component: _4affed74,
-    name: "admin-login"
-  }, {
     path: "/checkout",
-    component: _c080320a,
+    component: _1da18e7b,
     name: "checkout"
   }, {
     path: "/contact",
-    component: _04b694fb,
+    component: _0f7c050a,
     name: "contact"
   }, {
     path: "/gallery",
-    component: _fbaa01a6,
+    component: _75b667ad,
     name: "gallery"
   }, {
-    path: "/login",
-    component: _763d6ef8,
-    name: "login"
+    path: "/account/login",
+    component: _6721acde,
+    name: "account-login"
   }, {
-    path: "/register",
-    component: _3a725c50,
-    name: "register"
+    path: "/account/register",
+    component: _0b318caa,
+    name: "account-register"
   }, {
     path: "/admin/bookings",
-    component: _1f6cbca4,
+    component: _4747a524,
     name: "admin-bookings"
   }, {
     path: "/admin/categories",
-    component: _341fdbf4,
+    component: _fa9a4af4,
     name: "admin-categories"
   }, {
     path: "/admin/edit-profile",
-    component: _4feefb50,
+    component: _71bcb860,
     name: "admin-edit-profile"
   }, {
     path: "/admin/gallery",
-    component: _4b9c3ad8,
+    component: _7efb7b50,
     name: "admin-gallery"
   }, {
-    path: "/admin/logout",
-    component: _0d681918,
-    name: "admin-logout"
-  }, {
-    path: "/admin/profile",
-    component: _53616ca2,
-    name: "admin-profile"
-  }, {
-    path: "/admin/roles",
-    component: _791fcadf,
-    name: "admin-roles"
-  }, {
-    path: "/admin/staffs",
-    component: _6d7622e5,
-    name: "admin-staffs"
-  }, {
-    path: "/admin/roles/addrole",
-    component: _5168aee4,
-    name: "admin-roles-addrole"
-  }, {
-    path: "/admin/staffs/newstaff",
-    component: _1c67197d,
-    name: "admin-staffs-newstaff"
-  }, {
-    path: "/verify-account/:email?/:token?",
-    component: _276ba165,
-    name: "verify-account-email-token"
-  }, {
     path: "/",
-    component: _098cb526,
+    component: _58f5a426,
     name: "index"
   }],
 

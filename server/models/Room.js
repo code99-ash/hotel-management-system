@@ -18,6 +18,6 @@ const RoomSchema = mongoose.Schema({
         enum: ['vacant', 'booked'],
         default: 'vacant'
     },
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('Room', RoomSchema);

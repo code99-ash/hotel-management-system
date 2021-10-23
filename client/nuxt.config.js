@@ -1,11 +1,8 @@
 module.exports = {
 	plugins: [
         {src: '~plugins/iview', ssr: true},
-        {src: '~plugins/vuetify.js', ssr: true},
-        {src: '~plugins/vuemat.js', ssr: true},
         {src: '~plugins/vuelidate.js', ssr: true},
         {src: '~/plugins/flutterwave', ssr: false},
-        {src: '~/plugins/korapay', ssr: false},
       ],
       
     head: {

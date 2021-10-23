@@ -18,11 +18,11 @@
 <script>
 export default {
     layout: 'Customer',
-    async asyncData({$axios, $config}) {
-        const gallery = await $axios.$get(`/api/request.php?getGallery=true`);
-        // console.log(gallery)
-        return {gallery}
-    },
+    // async asyncData({$axios, $config}) {
+    //     const gallery = await $axios.$get(`/api/request.php?getGallery=true`);
+    //     // console.log(gallery)
+    //     return {gallery}
+    // },
 }
 </script>
 

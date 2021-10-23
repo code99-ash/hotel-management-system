@@ -41,11 +41,11 @@
 <script>
 export default {
     layout: 'Admin',
-    async asyncData({$axios, $config}) {
-        const gallery = await $axios.$get(`/api/request.php?getGallery=true`);
-        // console.log(gallery)
-        return {gallery}
-    },
+    // async asyncData({$axios, $config}) {
+    //     const gallery = await $axios.$get(`/api/request.php?getGallery=true`);
+    //     // console.log(gallery)
+    //     return {gallery}
+    // },
     data() {
         return {
             fileError: '',
@@ -56,7 +56,7 @@ export default {
         }
     },
     created() {
-        this.fetchCategories();
+        // this.fetchCategories();
     },
     methods: {
         fetchCategories() {

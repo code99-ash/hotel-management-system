@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="sidebar">
         <div class="logo mb-3">
             <h2 class="text-white text-center pb-3">Lego<span class="dot">.</span></h2>
         </div>
@@ -57,7 +57,19 @@ export default {
    .subItem {
        padding-left: 18px !important;
    }
-   .subItem:hover, .subItem-title:hover {
-       background: rgba(1, 7, 27, 0.938) !important;
+   .ivu-menu, .ivu-menu-submenu {
+       background: inherit !important;
    }
+   .ivu-menu-item:hover, .ivu-menu-submenu-title:hover, 
+   .ivu-menu-opened .ivu-menu-submenu-title,
+   .ivu-menu-item-active {
+        background: #1816166e !important;
+        color: #ebaa72 !important;
+    }
+    .ivu-menu-opened ul {
+        border-bottom: 1px solid #eaeaea;
+    }
+    .ivu-menu-item:hover a {
+        color: #ebaa72 !important;
+    }
 </style>
