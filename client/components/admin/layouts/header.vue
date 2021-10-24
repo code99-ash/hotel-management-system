@@ -1,7 +1,7 @@
 <template>
     <Card dis-hover class="header">
             <Icon @click="$emit('openSideBar', true)" 
-                    :class="[rotateIcon, 'd-md-none']" 
+                    class='d-md-none' 
                     :style="{margin: '0 20px'}" 
                     type="md-menu" 
                     size="24"
@@ -39,7 +39,7 @@ export default {
         width: 100%;
         position: sticky;
         top: 0;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         z-index: 10;
     }
     .right {

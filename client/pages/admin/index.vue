@@ -35,8 +35,8 @@
     <Row>
       <Col :md="24">
         <Card dis-hover class="mb-3">
-          <barChart :data="barChartData" :options="barChartOptions" :height="200" />
         </Card>
+        <barChart :data="barChartData" :options="barChartOptions" :height="200" />
       </Col>
     </Row>
 
