@@ -1,5 +1,6 @@
 export const state = () => ({
-    categories: []
+    categories: [],
+    rooms: [],
 })
 
 export const actions = {
@@ -17,6 +18,21 @@ export const actions = {
     },
     removeCategory({commit}, id) {
         commit('REMOVE_CATEGORY', id)
+    },
+
+    // ROOMS
+    async fetchRooms({commit}) {
+        const response = await this.$axios.$get('/room');
+        commit('ADD_ROOM', response);
+    },
+    addRoom({commit}, data) {
+        commit('ADD_ROOM', data)
+    },
+    updateRoom({commit}, data) {
+        commit('UPDATE_ROOM', data)
+    },
+    removeRoom({commit}, id) {
+        commit('REMOVE_ROOM', id)
     }
 }
 
@@ -32,5 +48,16 @@ export const mutations = {
         state.categories = state.categories.map(categ => 
             (categ._id === data._id)? categ=data : categ=categ
         );
+    },
+
+    //ROOMS
+    ADD_ROOM(state, data) {
+        state.rooms = (Array.isArray(data))? data : [...state.rooms, data];
+    },
+    REMOVE_ROOM(state, id) {
+        state.rooms = state.rooms.filter(room => room._id !== id);
+    },
+    UPDATE_ROOM(state, data) {
+        state.rooms = state.rooms.map(room => (room._id === data._id)? room=data : room=room);
     }
 }

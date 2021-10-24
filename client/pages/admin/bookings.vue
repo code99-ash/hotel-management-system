@@ -53,17 +53,14 @@
                         v-if="pageCount > 1"
                     ></v-pagination>
 
-                    <more-info :moreDialog="moreDialog" @closeMoreDialog="moreDialog = false" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import moreInfo from '../../components/admin/bookings/more-info.vue'
 
   export default {
-  components: { moreInfo },
     layout: 'Admin',
     // async asyncData({$axios, $config}) {
     //     const bookings = await $axios.$get(`/api/request.php?allBookings=true`);
@@ -94,6 +91,7 @@ import moreInfo from '../../components/admin/bookings/more-info.vue'
           { text: 'Date', value: 'created_at' },
           { text: 'Actions', value: 'actions' },
         ],
+        bookings: [],
         
       }
     },

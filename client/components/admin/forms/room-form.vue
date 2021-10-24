@@ -1,19 +1,33 @@
 <template>
-        <Form ref="categoryForm" :model="categoryForm" :rules="categoryRules">
+        <Form ref="roomForm" :model="roomForm" :rules="roomRRules">
             <Row :gutter="16">
                 <Col :xs="24">
-                    <FormItem prop="name" label="Name">
-                        <Input v-model="categoryForm.name" :disabled="editData.editMode? true:false" />
+                    <FormItem prop="room_number" label="Room Number">
+                        <Input v-model="roomForm.room_number" :disabled="editData.editMode? true:false" />
                     </FormItem>
                 </Col>
-                <Col :xs="12">
-                    <FormItem label="Price" prop="price">
-                        <InputNumber v-model="categoryForm.price" :min="100"></InputNumber>
+                <Col :xs="12" v-if="!editData.editMode">
+                    <FormItem label="category" prop="Category">
+                        <Select v-model="roomForm.category" filterable>
+                            <Option 
+                                v-for="categ in $store.state.data.categories" 
+                                :value="categ._id" 
+                                :key="categ._id"
+                            >{{ categ.name }}</Option>
+                        </Select>
                     </FormItem>
                 </Col>
-                <Col :xs="12">
+                <Col :xs="6" v-if="editData.editMode">
+                    <FormItem prop="status" label="Status">
+                        <Select v-model="roomForm.status" filterable>
+                            <Option value="vacant">Vacant</Option>
+                            <Option value="booked">booked</Option>
+                        </Select>
+                    </FormItem>
+                </Col>
+                <Col :xs="editData.editMode? 6:12">
                     <FormItem prop="active" label="Active">
-                        <i-switch v-model="categoryForm.active" true-color="#f7730e">
+                        <i-switch v-model="roomForm.active" true-color="#f7730e">
                             <Icon type="md-checkmark" slot="open"></Icon>
                             <Icon type="md-close" slot="close"></Icon>
                         </i-switch>
@@ -25,14 +39,14 @@
                         type="primary" 
                         v-if="!editData.editMode"
                         class="float-right ml-auto mr-0"
-                        @click.prevent="submitCategory('categoryForm')"
+                        @click.prevent="submitRoom('roomForm')"
                     >Save</Button>
                     <Button 
                         :loading="loading" 
                         type="success" 
                         v-else
                         class="float-right ml-auto mr-0"
-                        @click.prevent="updateCategory('categoryForm')"
+                        @click.prevent="updateRoom('roomForm')"
                     >Update</Button>
                 </Col>
             </Row>
@@ -41,46 +55,31 @@
 </template>
 <script>
 export default {
-    name: 'CategoryForm',
+    name: 'RoomForm',
     props: ['editData'],
     watch: {
         editData: function(val) {
             if(val.editMode === true) {
-                this.categoryForm = val
+                this.roomForm = {...val, category: val.category._id}
             }else {
-                this.categoryForm = {
-                    name: '',
-                    price: 1000,
-                    active: true,
-                }
+                this.resetForm();
             }
         },
-        price: function(val) {
-            console.log(val)
-        }
     },
     data() {
-        const validatePrice = (rule, value, callback) => {
-            if (!value) {
-                callback(new Error('This field is required'));
-            }
-            else {
-                callback();
-            }
-        };
         return {
             loading: false,
-            categoryForm: {
-                name: '',
-                price: 1000,
+            roomForm: {
+                room_number: '',
+                category: '',
                 active: true,
             },
-            categoryRules: {
+            roomRRules: {
                 name: [
                     {required: true, message: 'This field is required', trigger: 'blur'}
                 ],
-                price: [
-                    { validator: validatePrice, trigger: 'blur' }
+                category: [
+                    { required: true, message: 'Select a category', trigger: 'change' }
                 ],
             }
         }
@@ -94,29 +93,30 @@ export default {
         },
 
         resetForm() {
-            this.categoryForm = {
-                name: '',
-                price: 1000,
+            this.roomForm = {
+                room_number: '',
+                category: '',
                 active: true,
             }
         },
 
-        submitCategory(name) {
+        submitRoom(name) {
             this.$refs[name].validate(async(valid) => {
                 if (valid) {
                     try {
                         this.loading = true;
-                        const {name, price, active} = this.categoryForm;
+                        const {room_number, category, active} = this.roomForm;
     
-                        const response = await this.$axios.post(`/category/create`, {name, price, active});
+                        const response = await this.$axios.post(`/room/create`, {room_number, category, active});
                         this.loading = false;
                         const {error, msg} = response.data;
                         if(error) {
                             this.$Message.error(msg);
                             return;
                         }
-                        this.$store.dispatch('data/addCategory', msg);
-                        this.successNotice('Successfully created a new category');
+                        this.$store.dispatch('data/addRoom', msg);
+                        this.successNotice('Successfully created a new room');
+
                         this.resetForm();
                         this.$emit('closeModal')
 
@@ -130,29 +130,31 @@ export default {
             })
         },
 
-        updateCategory(name) {
+        updateRoom(name) {
             this.$refs[name].validate(async(valid) => {
                 if(valid) {
-                    this.loading = true;
                     try {
+                        this.loading = true;
 
-                        const{_id, name, price, active} = this.categoryForm;
-                        const response= await this.$axios.post(`/category/update`, {_id, name, price, active});
+                        const {_id, room_number, category, active, status} = this.roomForm;
+                        
+                        const response= await this.$axios.post(`/room/update`, 
+                                            {room_number, category, active, status, id: _id});
                         const {error, msg} = response.data;
-
+                        this.loading = false;
                         if(!error) {
-                            this.successNotice('Successfully updated Category');
-                            this.$store.dispatch('data/updatecategory', msg);    
+                            this.successNotice('Successfully updated Room');
+                            this.$store.dispatch('data/updateRoom', msg);    
                             this.$emit('closeModal')
                         }else {
                             console.log(error)
                         }
                     }catch(err) {
                         console.log(err)
+                        this.loading = false;
                         this.$Message.error('An error occured');
                     }
                     
-                    this.loading = false;
 
 
                 }else{ 

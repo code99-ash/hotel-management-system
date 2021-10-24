@@ -28,7 +28,8 @@ import AdminHeader from '@/components/admin/layouts/header'
                 menuItems: [
                     {type: 'md-home', name: 'Dashboard', active: '1', route: '/admin', hasChild:false},
                     {type: 'md-briefcase', name: 'Categories', active: '2', route: '/admin/categories', hasChild:false},
-                    {type: 'ios-book', name: 'Bookings', active: '3', route: '/admin/bookings', hasChild:false},
+                    {type: 'md-cube', name: 'Rooms', active: '3', route: '/admin/rooms', hasChild:false},
+                    {type: 'ios-book', name: 'Bookings', active: '4', route: '/admin/bookings', hasChild:false},
                     {type: 'ios-people', name: 'Staffs', active: '5', hasChild:true, 
                     children: [
                         {type: '', name: 'New Staffs', active: '5-1', route: '/admin/staffs/newstaff'},

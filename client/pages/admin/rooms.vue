@@ -1,35 +1,42 @@
 <template>
     <div>
         <Modal v-model="showForm" footer-hide @on-cancel="closeModal">
-            <CategoryForm @closeModal="closeModal" :editData="editData" />
+            <RoomForm @closeModal="closeModal" :editData="editData" />
         </Modal>
         <Card dis-hover class="header-card">
-            <h5 class="text-primary">Categories</h5>
+            <h5 class="text-primary">Rooms</h5>
             <Button @click="showForm=true">Add +</Button>
         </Card>
         <div class="p-2 table-div">
-            <Table border :columns="columns" :data="$store.state.data.categories" :ellipsis="true">
+            <Table border :columns="columns" :data="$store.state.data.rooms" :ellipsis="true">
                 <template slot-scope="{ row }" slot="name">
-                    <span>{{ row.name }}</span>
+                    <span>{{ row.room_number }}</span>
                 </template>
-                <template slot-scope="{ row }" slot="price">
-                    <span>{{ row.price }}</span>
+                <template slot-scope="{ row }" slot="category">
+                    <span>{{ row.category.name }}</span>
                 </template>
-                <template slot-scope="{ row }" slot="rooms">
-                    <span class="h6">{{ row.rooms.length }}</span>
+                <template slot-scope="{ row }" slot="status">
+                    <span :class="[row.status === 'vacant'? 'text-success':'text-warning']">{{ row.status }}</span>
                 </template>
                 <template slot-scope="{ row }" slot="active">
                     <Icon type="md-checkmark" v-if="row.active" class="text-success table-icon" />
                     <Icon type="md-close" v-else class="text-danger table-icon" />
                 </template>
                 <template slot-scope="{ row }" slot="action">
-                    <Icon type="md-create" class="table-icon text-info" @click="editCategory(row._id)" />
+                    <Icon 
+                        type="md-create" 
+                        class="table-icon text-info" 
+                        @click="editRoom(row._id)" 
+                    />
                     <Divider type="vertical" />
-                    <Icon type="ios-trash" class="table-icon text-danger" @click="confirmDelete(row._id)" />
+                    <Icon 
+                        type="ios-trash" 
+                        class="table-icon text-danger" 
+                        @click="confirmDelete(row._id)" 
+                    />
                 </template>
             </Table>
         </div>
-
         <Modal v-model="confirmProps.open" width="360">
             <p slot="header" style="color:#f60;text-align:center">
                 <Icon type="ios-information-circle"></Icon>
@@ -40,38 +47,42 @@
                 <p>Are you sure you want to delete it?</p>
             </div>
             <div slot="footer">
-                <Button type="error" size="large" long :loading="loading" @click="remove(confirmProps.id)">Delete</Button>
+                <Button 
+                    type="error" 
+                    size="large" long 
+                    :loading="loading" 
+                    @click="remove(confirmProps.category, confirmProps.id)"
+                >Delete</Button>
             </div>
         </Modal>
-    </div>  
+
+    </div>
 </template>
 
 <script>
-import CategoryForm from '@/components/admin/forms/category-form'
+import RoomForm from '@/components/admin/forms/room-form'
 export default {
-    components: {
-        CategoryForm,
-     },
     layout: 'Admin',
-    data () {
-            return {
-                showForm: false,
-                loading: false,
-                editData: {editMode: false},
-                confirmProps: {open: false, name: 'category', id: 0},
-                columns: [
+    components: { RoomForm },
+    data() {
+        return {
+            loading: false,
+            showForm: false,
+            editData: {editMode: false},
+            confirmProps: {open: false, name: 'category', id: 0, category: 0},
+            columns: [
                     {
                         title: 'Name',
                         slot: 'name'
                     },
                     {
-                        title: 'Price',
-                        key: 'price'
+                        title: 'Category',
+                        slot: 'category'
                     },
                     {
-                        title: 'Rooms',
-                        slot: 'rooms',
-                        width: 80
+                        title: 'Status',
+                        slot: 'status',
+                        width: 75
                     },
                     {
                         title: 'Active',
@@ -85,17 +96,25 @@ export default {
                         align: 'center'
                     }
                 ],
-                
-            }
+        }
     },
     methods: {
-        async remove(id) {
+        confirmDelete(id) {
+            const room = this.$store.state.data.rooms.find(each => each._id === id);
+            this.confirmProps = {
+                open: true,
+                name: room.room_number,
+                id,
+                category: room.category._id
+            }
+        },
+        async remove(category, id) {
             try {
                 this.loading = true;
-                    const response = await this.$axios.post(`/category/delete`, {id});
+                    const response = await this.$axios.post(`/room/delete`, {id, category});
                 this.loading = false;
-                this.successNotice('Successfully deleted Category');
-                this.$store.dispatch('data/removeCategory', id);
+                    this.successNotice('Successfully deleted Room');
+                    this.$store.dispatch('data/removeRoom', id);
                 this.confirmProps.open = false;
             }catch(err) {
                 this.loading = false;
@@ -103,18 +122,9 @@ export default {
                 console.log(err)
             }
         },
-        confirmDelete(id) {
-            const categ = this.$store.state.data.categories.find(each => each._id === id);
-            this.confirmProps = {
-                open: true,
-                name: categ.name,
-                id
-            }
-        },
-        editCategory(id) {
-            const cat = this.$store.state.data.categories.find(each => each._id === id);
-            // const parsedData = JSON.parse(JSON.stringify(categ))
-            this.editData = {editMode: true, ...cat};
+        editRoom(id) {
+            const room = this.$store.state.data.rooms.find(each => each._id === id);
+            this.editData = {editMode: true, ...room};
             this.showForm = true;
         },
         successNotice(desc) {
@@ -127,7 +137,6 @@ export default {
             this.editData = {editMode: false}
             this.showForm = false;
         },
-        
     }
 }
 </script>
@@ -139,28 +148,5 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 10px !important;
-    }
-    .text-danger {
-        color: red !important;
-    }
-    .table-icon {
-        font-size: 18px;
-    }
-
-    @media (max-width: 768px) {
-        .table-icon {
-            font-size: 15px;
-        }
-    }
-    @media (max-width: 520px) {
-        table {
-            width: 520px !important;
-        }
-        .table-div {
-            overflow-x: scroll;
-        }
-        .table-div::-webkit-scrollbar {
-            width: 5px;
-        }
     }
 </style>

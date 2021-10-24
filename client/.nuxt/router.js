@@ -15,6 +15,7 @@ const _4747a524 = () => interopDefault(import('..\\pages\\admin\\bookings.vue' /
 const _fa9a4af4 = () => interopDefault(import('..\\pages\\admin\\categories.vue' /* webpackChunkName: "pages/admin/categories" */))
 const _71bcb860 = () => interopDefault(import('..\\pages\\admin\\edit-profile.vue' /* webpackChunkName: "pages/admin/edit-profile" */))
 const _7efb7b50 = () => interopDefault(import('..\\pages\\admin\\gallery.vue' /* webpackChunkName: "pages/admin/gallery" */))
+const _c048b304 = () => interopDefault(import('..\\pages\\admin\\rooms.vue' /* webpackChunkName: "pages/admin/rooms" */))
 const _58f5a426 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -77,6 +78,10 @@ export const routerOptions = {
     path: "/admin/gallery",
     component: _7efb7b50,
     name: "admin-gallery"
+  }, {
+    path: "/admin/rooms",
+    component: _c048b304,
+    name: "admin-rooms"
   }, {
     path: "/",
     component: _58f5a426,

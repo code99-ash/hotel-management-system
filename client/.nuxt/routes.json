@@ -77,6 +77,13 @@
     "_name": "_7efb7b50"
   },
   {
+    "name": "admin-rooms",
+    "path": "/admin/rooms",
+    "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\rooms.vue",
+    "chunkName": "pages/admin/rooms",
+    "_name": "_c048b304"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\index.vue",

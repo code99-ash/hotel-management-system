@@ -2,7 +2,9 @@ const { Room, Category } = require('../models');
 
 const getRooms = async(req, res, next) => {
     try {
-        const rooms = await Room.find();
+        const rooms = await Room.find()
+                                .select('room_number active status createdAt updatedAt category')
+                                .populate({path: 'category', select: 'name'});
         res.json(rooms).status(201);
 
     }catch(err) {
@@ -25,7 +27,11 @@ const createRoom = async(req, res, next) => {
             }
         })
 
-        res.json(room).status(201);
+        const newRoom = await Room.findById(room._id)
+                                .select('room_number active status createdAt updatedAt category')
+                                .populate({path: 'category', select: 'name'});
+
+        res.json({error: false, msg: newRoom}).status(201);
 
 
     }catch(err) {
@@ -35,11 +41,13 @@ const createRoom = async(req, res, next) => {
 
 const updateRoom = async(req, res, next) => {
     try {
-        const {id, room_number, active, status } = req.body;
-        await Room.findByIdAndUpdate( id, {room_number, active, status})
+        const {id, room_number, active, status, category } = req.body;
+        await Room.findByIdAndUpdate( id, {room_number, active, status, category})
 
-        const updated = await Room.findById(id);
-        res.json(updated)
+        const updated = await Room.findById(id)
+                                .select('room_number active status createdAt updatedAt category')
+                                .populate({path: 'category', select: 'name'});
+        res.json({error: false, msg: updated});
 
     }catch(err) {
         next(err)
