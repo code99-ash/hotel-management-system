@@ -1,12 +1,18 @@
 export const state = () => ({
     categories: [],
     rooms: [],
+    availableRooms: [],
 })
 
 export const actions = {
+    // AVAILABILITY
+    setAvailableRooms({commit}, data) {
+        commit('SET_AVAILABLE_ROOMS',data)
+    },
+
     // CATEGORIES
     async fetchCategories({commit}) {
-        const response = await this.$axios.$get(`/category`);
+        const response = await this.$axios.$get(`/api/category`);
         commit('ADD_CATEGORY', response)
     },
     addCategory({commit}, data) {
@@ -22,7 +28,7 @@ export const actions = {
 
     // ROOMS
     async fetchRooms({commit}) {
-        const response = await this.$axios.$get('/room');
+        const response = await this.$axios.$get('/api/room');
         commit('ADD_ROOM', response);
     },
     addRoom({commit}, data) {
@@ -37,6 +43,11 @@ export const actions = {
 }
 
 export const mutations = {
+    // AVAILABILITY
+    SET_AVAILABLE_ROOMS(state, data) {
+        state.availableRooms = data;
+    },
+
     // CATEGORIES
     ADD_CATEGORY(state, data) {
         state.categories = (Array.isArray(data))? data : [...state.categories, data]

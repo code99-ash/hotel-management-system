@@ -5,6 +5,8 @@ import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
+import '..\\assets\\style.scss'
+
 import _754390f9 from '..\\layouts\\Admin.vue'
 import _7faa19f4 from '..\\layouts\\Customer.vue'
 import _759fbb82 from '..\\layouts\\Guest.vue'

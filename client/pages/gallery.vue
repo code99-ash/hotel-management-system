@@ -6,23 +6,33 @@
                 <h3 class="text-center text-light title">Lego Gallery<span class="text-primary">.</span></h3>
             </div>
         <div class="container my-5">
-            <div class="row">
-                <div class="col-md-3" :key="gal.id" v-for="gal in gallery">
-                    <img :title="gal.name" :src="`${$axios.defaults.baseURL}/uploads/gallery/${gal.image}`" :alt="gal.name" class="card-img">
-                </div>
-            </div>
+            <lightbox cells="4" :items="images"></lightbox>
         </div>
+
+
     </div>
 </template>
 
 <script>
 export default {
     layout: 'Customer',
-    // async asyncData({$axios, $config}) {
-    //     const gallery = await $axios.$get(`/api/request.php?getGallery=true`);
-    //     // console.log(gallery)
-    //     return {gallery}
-    // },
+    components: {
+        'lightbox': () => { if(process.client) { return import('@morioh/v-lightbox') } }
+    },
+    data() {
+        return {
+            images: [
+                "/images/vip1.jpg",
+                "/images/vip2.jpg",
+                "/images/vip3.jpg",
+                "/images/vip4.jpg",
+                "/images/reg1.jpg",
+                "/images/reg2.jpg",
+                "/images/reg3.jpg",
+                "/images/reg4.jpg",
+            ]
+        }
+    }
 }
 </script>
 
@@ -39,7 +49,7 @@ export default {
     .banner {
         width: 100vw;
         height: 40vh;
-        background: url('/images/home/vip/vip4.jpg');
+        background: url('/images/vip4.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

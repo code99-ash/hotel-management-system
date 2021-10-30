@@ -1,0 +1,41 @@
+@mixin flex-row {
+    display: flex;
+    flex-direction: row !important;
+}
+@mixin justify-content-row-end {
+    @include flex-row;
+    justify-content: flex-end;
+}
+
+@mixin justify-content-row-midXY {
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin justify-content-row-midX {
+    @include flex-row;
+    justify-content: center;
+}
+
+@mixin justify-content-row-midY {
+    @include flex-row;
+    align-items: center;
+}
+
+@mixin justify-content-row-between {
+    @include flex-row;
+    justify-content: space-between;
+}
+
+// BACCKGROUND
+@mixin default-bgImage($params) {
+    background-image: url($params);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin parallax-bg {
+    background-attachment: fixed;
+}

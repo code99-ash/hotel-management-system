@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import "~/assets/css/style.css";
-
 export default {
     layout: 'Customer'
 }

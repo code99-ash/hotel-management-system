@@ -3,91 +3,78 @@
     "name": "about",
     "path": "/about",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\about.vue",
-    "chunkName": "pages/about",
-    "_name": "_986559b0"
+    "chunkName": "pages/about"
   },
   {
     "name": "admin",
     "path": "/admin",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index",
-    "_name": "_a3649150"
+    "chunkName": "pages/admin/index"
   },
   {
     "name": "checkout",
     "path": "/checkout",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\checkout.vue",
-    "chunkName": "pages/checkout",
-    "_name": "_1da18e7b"
+    "chunkName": "pages/checkout"
   },
   {
     "name": "contact",
     "path": "/contact",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\contact.vue",
-    "chunkName": "pages/contact",
-    "_name": "_0f7c050a"
+    "chunkName": "pages/contact"
   },
   {
     "name": "gallery",
     "path": "/gallery",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\gallery.vue",
-    "chunkName": "pages/gallery",
-    "_name": "_75b667ad"
+    "chunkName": "pages/gallery"
   },
   {
     "name": "account-login",
     "path": "/account/login",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\account\\\\login.vue",
-    "chunkName": "pages/account/login",
-    "_name": "_6721acde"
+    "chunkName": "pages/account/login"
   },
   {
     "name": "account-register",
     "path": "/account/register",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\account\\\\register.vue",
-    "chunkName": "pages/account/register",
-    "_name": "_0b318caa"
+    "chunkName": "pages/account/register"
   },
   {
     "name": "admin-bookings",
     "path": "/admin/bookings",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\bookings.vue",
-    "chunkName": "pages/admin/bookings",
-    "_name": "_4747a524"
+    "chunkName": "pages/admin/bookings"
   },
   {
     "name": "admin-categories",
     "path": "/admin/categories",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\categories.vue",
-    "chunkName": "pages/admin/categories",
-    "_name": "_fa9a4af4"
+    "chunkName": "pages/admin/categories"
   },
   {
     "name": "admin-edit-profile",
     "path": "/admin/edit-profile",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\edit-profile.vue",
-    "chunkName": "pages/admin/edit-profile",
-    "_name": "_71bcb860"
+    "chunkName": "pages/admin/edit-profile"
   },
   {
     "name": "admin-gallery",
     "path": "/admin/gallery",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\gallery.vue",
-    "chunkName": "pages/admin/gallery",
-    "_name": "_7efb7b50"
+    "chunkName": "pages/admin/gallery"
   },
   {
     "name": "admin-rooms",
     "path": "/admin/rooms",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\admin\\\\rooms.vue",
-    "chunkName": "pages/admin/rooms",
-    "_name": "_c048b304"
+    "chunkName": "pages/admin/rooms"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\xampp\\\\htdocs\\\\nuxt-hotel-app\\\\client\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_58f5a426"
+    "chunkName": "pages/index"
   }
 ]

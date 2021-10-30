@@ -1,8 +1,7 @@
 module.exports = {
 	plugins: [
         {src: '~plugins/iview', ssr: true},
-        {src: '~plugins/vuelidate.js', ssr: true},
-        {src: '~/plugins/flutterwave', ssr: false},
+        // {src: '~plugins/lightbox', ssr: false},
       ],
       
     head: {
@@ -19,9 +18,6 @@ module.exports = {
           { rel: "stylesheet", type: "text/css", href: "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" },
           { rel: "stylesheet", type: "text/css", href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" },
           { rel: "stylesheet", type: "text/css", href: "//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons" },
-          { rel: "stylesheet", type: "text/css", href: "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" },
-          { rel: "stylesheet", type: "text/css", href: "https://cdn.jsdelivr.net/npm/font-awesome@4.x/css/font-awesome.min.css" },
-          
         ],
 
         script: [
@@ -30,6 +26,10 @@ module.exports = {
             { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' },
         ]
     },
+
+    css: [
+      '~assets/style.scss'
+    ],
 
     modules: [
         '@nuxtjs/axios',
@@ -40,10 +40,49 @@ module.exports = {
 
     buildModules: [
       '@nuxtjs/dotenv',
+      '@nuxtjs/style-resources',
     ],
+
+    styleResources: {
+      scss: [
+        '~assets/scss/mixins.scss',
+        '~assets/scss/variables.scss'
+      ]
+    },
+    
     publicRuntimeConfig: {
       axios: {
-        baseURL: process.env.BASE_URL || 'http://127.0.0.1:3001/api'
+        baseURL: process.env.BASE_URL || 'http://127.0.0.1:3001'
       }
     },
+
+    auth: {
+      strategies: {
+        local: {
+          scheme: 'refresh',
+          token: {
+            property: 'access_token',
+            maxAge: 1800,
+            global: true,
+            // type: 'Bearer'
+          },
+          refreshToken: {
+            property: 'refresh_token',
+            data: 'refresh_token',
+            maxAge: 60 * 60 * 24 * 30
+          },
+          user: {
+            property: 'user',
+           // autoFetch: true
+          },
+          endpoints: {
+            login: { url: '/api/auth/login', method: 'post' },
+            refresh: { url: '/api/auth/refresh', method: 'post' },
+            user: { url: '/api/auth/user', method: 'get' },
+            logout: { url: '/api/auth/logout', method: 'post' }
+          },
+          // autoLogout: false
+        }
+      }
+    }
 }

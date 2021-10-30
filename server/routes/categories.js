@@ -5,6 +5,7 @@ router.get('/', (...params) => CategoryController.getCategories(...params));
 router.post('/create', (...params) => CategoryController.createCategory(...params));
 router.post('/update', (...params) => CategoryController.updateCategory(...params));
 router.post('/delete', (...params) => CategoryController.deleteCategory(...params));
+// router.post('/uploadImg', (...params) => CategoryController.uploadImage(...params));
 
 
 module.exports = router;

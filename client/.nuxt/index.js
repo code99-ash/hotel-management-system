@@ -17,8 +17,6 @@ import nuxt_plugin_vuescrollto_69ae835c from 'nuxt_plugin_vuescrollto_69ae835c' 
 import nuxt_plugin_cookieuniversalnuxt_2dcb2096 from 'nuxt_plugin_cookieuniversalnuxt_2dcb2096' // Source: .\\cookie-universal-nuxt.js (mode: 'all')
 import nuxt_plugin_axios_1c56ebe6 from 'nuxt_plugin_axios_1c56ebe6' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_iview_fabcf5d2 from 'nuxt_plugin_iview_fabcf5d2' // Source: ..\\plugins\\iview (mode: 'all')
-import nuxt_plugin_vuelidate_7b59e9fd from 'nuxt_plugin_vuelidate_7b59e9fd' // Source: ..\\plugins\\vuelidate.js (mode: 'all')
-import nuxt_plugin_flutterwave_b89ec842 from 'nuxt_plugin_flutterwave_b89ec842' // Source: ..\\plugins\\flutterwave (mode: 'client')
 import nuxt_plugin_auth_2b01acfa from 'nuxt_plugin_auth_2b01acfa' // Source: .\\auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -79,7 +77,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Lego Hotel","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Lego Hotel offers very nice and conducive environment with a lovely view at an affordable price."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fstackpath.bootstrapcdn.com\u002Fbootstrap\u002F4.2.1\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:400,500,700,400italic|Material+Icons"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@4.x\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002Ffont-awesome@4.x\u002Fcss\u002Ffont-awesome.min.css"}],"script":[{"src":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fpopper.js\u002F1.14.6\u002Fumd\u002Fpopper.min.js"},{"src":"https:\u002F\u002Fcode.jquery.com\u002Fjquery-3.3.1.slim.min.js"},{"src":"https:\u002F\u002Fstackpath.bootstrapcdn.com\u002Fbootstrap\u002F4.2.1\u002Fjs\u002Fbootstrap.min.js"}],"style":[]},
+    head: {"title":"Lego Hotel","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Lego Hotel offers very nice and conducive environment with a lovely view at an affordable price."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fstackpath.bootstrapcdn.com\u002Fbootstrap\u002F4.2.1\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:400,500,700,400italic|Material+Icons"}],"script":[{"src":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fpopper.js\u002F1.14.6\u002Fumd\u002Fpopper.min.js"},{"src":"https:\u002F\u002Fcode.jquery.com\u002Fjquery-3.3.1.slim.min.js"},{"src":"https:\u002F\u002Fstackpath.bootstrapcdn.com\u002Fbootstrap\u002F4.2.1\u002Fjs\u002Fbootstrap.min.js"}],"style":[]},
 
     store,
     router,
@@ -222,14 +220,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_iview_fabcf5d2 === 'function') {
     await nuxt_plugin_iview_fabcf5d2(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_vuelidate_7b59e9fd === 'function') {
-    await nuxt_plugin_vuelidate_7b59e9fd(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_flutterwave_b89ec842 === 'function') {
-    await nuxt_plugin_flutterwave_b89ec842(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_2b01acfa === 'function') {

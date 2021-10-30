@@ -1,4 +1,14 @@
 const { Category } = require('../models');
+const { uploadImg } = require('./fileController');
+var { upload } = require('../middleware/upload-middleware');
+
+// const uploadImage = (req, res, next) => {
+//     try {
+//         uploadImg(req, res, next)
+//     }catch(err) {
+//         next(err)
+//     }
+// }
 
 const getCategories = async(req, res, next) => {
     try {
@@ -10,6 +20,11 @@ const getCategories = async(req, res, next) => {
 }
 
 const createCategory = async(req, res, next) => {
+    upload(req, res, function(err) {
+        if(err) {
+            res.status(400).json({"error": err})
+        }
+    })
     try {
         const categExist = await Category.findOne({name: req.body.name})
             if(categExist)
@@ -49,5 +64,5 @@ module.exports = {
     getCategories,
     createCategory,
     updateCategory,
-    deleteCategory
+    deleteCategory,
 }

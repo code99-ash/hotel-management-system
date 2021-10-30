@@ -12,9 +12,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
 // Route Middleware
-app.use('/api/user', require('./routes/users'))
+app.use('/api/auth', require('./routes/auth'))
 app.use('/api/category', require('./routes/categories'))
 app.use('/api/room', require('./routes/rooms'))
+app.use('/api/booking', require('./routes/bookings'))
 
 app.get("/", (req, res) => {
   res.send("Hotel Application index");
