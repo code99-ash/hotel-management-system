@@ -1,14 +1,7 @@
-const { Category } = require('../models');
-const { uploadImg } = require('./fileController');
-var { upload } = require('../middleware/upload-middleware');
+const fs = require('fs');
 
-// const uploadImage = (req, res, next) => {
-//     try {
-//         uploadImg(req, res, next)
-//     }catch(err) {
-//         next(err)
-//     }
-// }
+const { Room, Category } = require('../models');
+var upload = require('../middleware/upload-middleware');
 
 const getCategories = async(req, res, next) => {
     try {
@@ -19,23 +12,52 @@ const getCategories = async(req, res, next) => {
     }
 }
 
-const createCategory = async(req, res, next) => {
-    upload(req, res, function(err) {
-        if(err) {
-            res.status(400).json({"error": err})
-        }
-    })
+const createCategory = async (req, res, next) => {
     try {
-        const categExist = await Category.findOne({name: req.body.name})
-            if(categExist)
-            return res.status(201).json({error: true, msg: 'Category already exists'});
+            const uploaded = upload(req, res, function(err) {
+                if(err) {
+                    res.status(400).json({"error": true, type: 'fileError', msg: err});
+                }else {
 
-        const body = req.body;
-        const category = await Category.create(body);
-        res.json({error: false, msg: category}).status(201)
-    }catch(err) {
-        next(err)
-    }
+                    const ext = req.file.filename.split('.')[1];
+                    const newName = req.body.name + '.' + ext; 
+                    
+                    try {
+
+                        const category = Category.create({...req.body, image: newName}, function(error, data) {
+                            if(error) {
+
+                                fs.unlink(`./gallery/${req.file.filename}`,(err) => {
+                                    if(err)
+                                        console.log('Unable to delete file', err)
+                                })
+                                if(error.code === 11000) {
+                                    res.json({error: true, msg: 'Category name already exist'});
+                                }else {
+                                    res.json({error: true, msg: error});
+                                }
+
+                            }else {
+                                fs.rename(`./gallery/${req.file.filename}`,`./gallery/${newName}`, (err) => {
+                                    if(err)
+                                        console.log('Unable to rename file')
+                                })
+                                res.json({errorUpload: false, msg: data}).status(201)
+                            }
+                        });
+                        
+
+                    }catch(err) {
+                       next(err)
+                    }
+                    
+                }
+            })
+
+        }catch(err) {
+            next(err)
+            // res.status(401).json({error: true, msg: err})
+        }
 }
 
 const updateCategory = async(req, res, next) => {
@@ -53,7 +75,14 @@ const updateCategory = async(req, res, next) => {
 
 const deleteCategory = async(req, res, next) => {
     try {
-        await Category.findByIdAndRemove({_id: req.body.id})
+        const categ = await Category.findByIdAndRemove({_id: req.body.id})
+        await Room.deleteMany({category: req.body.id});
+
+        fs.unlink(`./gallery/${categ.image}`,(err) => {
+            if(err)
+                console.log('Unable to delete file', err)
+        })
+
         res.json('Deleted Successully').status(201);
     }catch(err) {
         next(err)
@@ -66,3 +95,5 @@ module.exports = {
     updateCategory,
     deleteCategory,
 }
+
+// module.exports = CategoryController

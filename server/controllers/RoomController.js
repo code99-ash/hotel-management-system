@@ -18,6 +18,8 @@ const createRoom = async(req, res, next) => {
         const roomExist = await Room.findOne({room_number, category});
         if(roomExist) return res.status(400).send('Room Number already exists');
 
+
+
         const room = await Room.create(req.body);
         const roomId = room._id;
 
